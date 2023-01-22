@@ -5,3 +5,7 @@ h1,h2,ul,li,p {
     background: cornflowerblue;
     color: green;
 }
+a {
+    text-decoration: none;
+    color: green;
+}

@@ -1,0 +1,40 @@
+.container{
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-top: 50px;
+}
+.box{
+    background: white;
+    border: cyan 2px solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 150px;
+    width: 500px;
+    padding:20px
+}
+i{
+    /*padding: 0px 20px;*/
+    padding-right: 40px;
+    padding-left: 20px;
+}
+.descr{
+    text-align:left;
+    /*margin:20px 0px*/
+}
+h4{
+    font-size: 30px;
+    margin: 0;
+    font-weight: 450;
+    font-family: Calibri;
+}
+p{
+    margin-bottom: 0px;
+    font-family: Calibri;
+    text-align: justify;
+}
