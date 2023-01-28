@@ -1,0 +1,46 @@
+body{
+    padding: 50px;
+    font-size: 200px;
+}
+.block-A,.block-B,.block-C{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 100%;
+    height:50vh;
+    border: 2px solid silver;
+    border-radius: 20px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 30px;
+    row-gap: 30px;
+}
+.blocks{
+    column-gap: 30px;
+}
+.block-A {
+    width: 100%;
+    height: 30%;
+    background: cornflowerblue;
+    border-radius: 20px;
+}
+.blocks{
+    width: 100%;
+    height: 70%;
+    display: flex;
+}
+.block-B{
+    width: 70%;
+    /*height: 500px;*/
+    background: gold;
+    border-radius: 20px;
+}
+.block-C{
+    width: 30%;
+    /*height: 500px;*/
+    background: sandybrown;
+    border-radius: 20px;
+}

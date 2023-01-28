@@ -1,0 +1,27 @@
+@media screen and (max-width: 768px){
+    body{
+        font-size: 50px;
+    }
+    .block-A,.block-B,.block-C {
+        background: silver;
+    }
+    .block-A{
+        height: 20%;
+    }
+    .blocks{
+        flex-direction: column;
+        row-gap: 30px;
+        height: 80%;
+    }
+    .block-B{
+        width: 100%;
+        height: 75%;
+        /*height: 300px;*/
+    }
+    .block-C{
+        width: 100%;
+        height: 25%;
+    }
+
+
+}
