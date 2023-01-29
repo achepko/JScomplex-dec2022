@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Button</title>
+  <style>
+    button{
+      width: 400px;
+      height: 100px;
+      background: gold;
+      font-weight: 900;
+      font-size: 50px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    button::before{
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100%;
+        position: absolute;
+        background: white;
+        transform: skew(-45deg);
+        top:0;
+        filter: blur(20px);
+        left: -200px;
+        animation: button 3500ms ease-in-out infinite;
+
+    }
+    @keyframes button {
+        0% {
+            left:-200px;
+        }
+        100%{
+            left: 150%;
+
+        }
+
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <button>SEND ME</button>
+</div>
+
+</body>
+</html>
