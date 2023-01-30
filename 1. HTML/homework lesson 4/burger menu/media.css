@@ -1,0 +1,27 @@
+@media screen and (max-width: 600px) {
+    body{
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+    .mobile__button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+
+    }
+    .nav__list{
+        position: absolute;
+        width: 100%;
+        background: cornflowerblue;
+        flex-direction: column;
+        height: 94vh;
+        left: -200%;
+        top: 50px;
+        transition: left 1000ms;
+
+    }
+    .active .nav__list{
+        left: 0;
+    }
+}
