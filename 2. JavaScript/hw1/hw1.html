@@ -49,9 +49,12 @@ let a = 100; let b = '100'; let c = true;
   let c = true;
   console.log(typeof c)
 
-  console.log(prompt('What is your name?'));
-  console.log(prompt('What is your middle?'));
-  console.log(prompt('How old are you?'));
+  let namePrompt = prompt('What is your name?');
+  let middlePrompt = prompt('What is your middle?');
+  let yearPrompt = +prompt('How old are you?');
+  let person2 = `${namePrompt} ${middlePrompt}`;
+  console.log(person2);
+  console.log(yearPrompt);
 
 </script>
 
