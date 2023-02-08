@@ -1,70 +1,30 @@
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині
 
  for (let i = 0; i < 10; i++) {
-     const user = [i];
-     document.write(`<div>${i}</div>`)
+     document.write(`<div>TEXT</div>`);
  }
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
 document.write(`<h1><u>new task</u></h1>`)
 
- let users3 = [
-     {id: 1, name:'anton', age:26, status: false},
-     {id: 2, name:'anna', age:22, status: false},
-     {id: 3, name:'kristina', age:36, status: true},
-     {id: 4, name:'sveta', age:56, status: false},
-     {id: 5, name:'sabina', age:226, status: true},
-     {id: 6, name:'sergei', age:16, status: false},
-     {id: 7, name:'pasha', age:22, status: false},
-     {id: 8, name:'oksana', age:223, status: true},
-     {id: 9, name:'lena', age:23, status: false},
-     {id: 10, name:'oleg', age:21, status: false},
-     {id: 11, name:'tanya', age:264, status: true},
-     {id: 12, name:'artur', age:23, status: false},
-   ];
-
- for (let i = 0; i < users3.length-2; i++) {
-     const user = users3[i];
-    document.write(`<div>${user.id} - ${user.name}</div>`)
+ for (let i = 0; i < 10; i++) {
+     document.write(`<div>TEXT ${i}</div>`);
  }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
 document.write(`<h1><u>new task</u></h1>`)
 
-let j = 0
-while (j<20){
-     document.write(`<h1>${j}</h1>`)
-    j++;
+let i = 0
+while (i<20){
+     document.write(`<div>TEXT</div>`)
+    i++;
 }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
-
-let users2 = [
-    {id: 1, name:'anton', age:26, status: false},
-    {id: 2, name:'anna', age:22, status: false},
-    {id: 3, name:'kristina', age:36, status: true},
-    {id: 4, name:'sveta', age:56, status: false},
-    {id: 5, name:'sabina', age:226, status: true},
-    {id: 6, name:'sergei', age:16, status: false},
-    {id: 7, name:'pasha', age:22, status: false},
-    {id: 8, name:'oksana', age:223, status: true},
-    {id: 9, name:'lena', age:23, status: false},
-    {id: 10, name:'oleg', age:21, status: false},
-    {id: 11, name:'tanya', age:264, status: true},
-    {id: 12, name:'artur', age:23, status: false},
-    {id: 13, name:'artur', age:23, status: false},
-    {id: 14, name:'artur', age:23, status: false},
-    {id: 15, name:'artur', age:23, status: false},
-    {id: 16, name:'artur', age:23, status: false},
-    {id: 17, name:'artur', age:23, status: false},
-    {id: 18, name:'artur', age:23, status: false},
-    {id: 19, name:'artur', age:23, status: false},
-    {id: 20, name:'artur', age:23, status: false},
-];
 document.write(`<h1><u>new task</u></h1>`)
+
  let a = 0;
  while (a<20){
-     const user2 = users2[a]
-     document.write(`<h1>${user2.id} - ${user2.name}</h1>`)
+     document.write(`<div>TEXT -- ${a}</div>`)
      a++;
  }
 
@@ -87,11 +47,11 @@ document.write(`<h1><u>new task</u></h1>`)
 
     let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
 
+    document.write(`<ul>`)
 for (const item of listOfItems) {
-    document.write(`<ul>
-                        <li>${item}</li>
-                   </ul>`)
+        document.write(`<li>${item}</li>`)
 }
+    document.write(`</ul>`)
 // -----------------------------------------------
 
 //     Використовуючи данні з масиву, за допомоги document.write та циклу
@@ -160,13 +120,14 @@ let products = [
 // }
 
 // 2ий спосіб
+    document.write(`<div class="card">`);
 for (const product of products) {
     document.write(`<div>`);
-             document.write(`<h3>${product.title}</h3>`);
+             document.write(`<h3>${product.title} - ${product.price} UAH</h3>`);
              document.write(`<img src="${product.image}" alt="">`)
     document.write(`</div>`);
 }
-
+    document.write(`</div>`);
 // -------------------
 
 //     є масив
