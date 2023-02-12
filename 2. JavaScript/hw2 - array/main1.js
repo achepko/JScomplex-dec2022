@@ -1,7 +1,7 @@
 // Масиви та об'єкти:
 // - Створити масив, наповнити його 10 елементами будь-якого типу, вивести кожен елемент в консоль
 
-let array = [1, 2, 'three', null, 5, undefined, '7', 8, 9, true, false]
+let array = [1, 2, 'three', null, 5, undefined, '7', 8, 9, true, false];
 console.log(array[0])
 console.log(array[1])
 console.log(array[3])
