@@ -143,10 +143,13 @@ swap(swapM,0,2)
 //     {currency: 'USD', value: 40},
 //     {currency: 'EUR', value: 42}
 // ];
-function exchange(sumUAH,currencyValues,exchangeCurrency) {
-    let result = sumUAH/currencyValues + exchangeCurrency
-    console.log(result)
-    return result
+function exchange(sumUAH,currencies,exchangeCurrency) {
+    for (const currency of currencies) {
+        if (currency.currency === exchangeCurrency) {
+            return (sumUAH / currency.value);
+        }
+    }
 }
-exchange(10000,40,'USD')
-exchange(10000,42,'EUR')
+
+console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'EUR'));;
+
