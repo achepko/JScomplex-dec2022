@@ -83,7 +83,7 @@ newlist(users);
 let numbers = [1, 434, 1222, 13131, 3333, 44445, 100000000000];
 let smallNumber = (array) => {
     let min = array[0];
-    for (let i = 0; i < min.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         if (min > array[i]) {
             min = array[i];
         }
