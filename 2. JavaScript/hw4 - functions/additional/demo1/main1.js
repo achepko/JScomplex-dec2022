@@ -6,6 +6,8 @@ function smallestFrom3(a, b, c) {
         console.log(b);
     } else if (c < a && c < b) {
         console.log(c);
+    }else {
+        console.log('Some of numbers are similar')
     }
 }
 
@@ -19,6 +21,8 @@ function biggestFrom3(a, b, c) {
         console.log(b);
     } else if (c > a && c > b) {
         console.log(c);
+    }else {
+        console.log('Some of numbers are similar')
     }
 }
 
