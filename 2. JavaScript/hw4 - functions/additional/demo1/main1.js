@@ -117,18 +117,6 @@ function sumAll2 (...rest){
 
 console.log(sumAll2(2));
 
-// function sumAll2() {
-//     let zero = 0;
-//     if (arguments.length>0) {
-//         for (const argument of arguments) {
-//             zero += argument}
-//         }else {
-//         zero = arguments[0];
-//     }
-//         return zero
-// }
-// console.log(sumAll2(3));
-
 // function foo () {
 //     let x = arguments[0];
 //     for (let i = 1; i < arguments.length; i++) {
@@ -160,19 +148,25 @@ function sumMass(arr1,arr2) {
 
 console.log(sumMass(a, b));
 
-// function sumMass(arr1,arr2) {
-//     let result = [];
-//     if (arr1.length === arr2.length){
-//         for (let i = 0; i < arr1.length; i++){
-//             result.push(arr1[i]+=arr2[i]);
-//         }
-//     }else if (arr1.length !== arr2.length){
-//
-//     }
-//     return result
-// }
-//
-// console.log(sumMass(a, b));
+// - створити функцію  яка приймає два масиви та скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
+// при цьому масиви можуть бути різної довжини:
+
+const foo = (arr1,arr2) =>{
+    let iterArr = arr1;
+    let someArr = arr2;
+    if (arr1.length < arr2.length){
+        iterArr = arr2;
+        someArr = arr1;
+    }
+    return iterArr.map((value,index)=>{
+        if(someArr[index]){
+            return someArr[index]+value;
+        }
+        return value;
+    });
+}
+console.log(foo([1,2,3],[9,8,7,5]))
+
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 // EXAMPLE:
