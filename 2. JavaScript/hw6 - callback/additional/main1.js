@@ -33,7 +33,8 @@ console.log(insert_dash(str3));
 document.writeln(insert_dash(str3));
 // - Напишіть функцію, яка приймає рядок як аргумент і перетворює регістр першого символу рядка з нижнього регістру у верхній.
 let str4 = 'каждый охотник желает знать';
-let strFirstToUpperCase = (i) => (i[0].toUpperCase()+i.substring(1));
+let strFirstToUpperCase = (i) => (i[0].toUpperCase() + i.substring(1));
+console.log(str4);
 console.log(strFirstToUpperCase(str4));
 // - Дано список імен.
 // let n1 = 'Harry..Potter'
@@ -46,25 +47,61 @@ console.log(strFirstToUpperCase(str4));
 let n1 = 'Harry..Potter'
 let n2 = 'Ron---Whisley'
 let n3 = 'Hermione__Granger'
-let toNormal = (str) => (str.replaceAll(/[..,---,__]/g,' '));
+let toNormal = (str) => (str.replaceAll(/[..,---,__]/g, ' '));
 console.log(toNormal(n1));
 console.log(toNormal(n2));
 console.log(toNormal(n3));
-//     - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
+// - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
+let res = [];
+let random100 = (arr) => {
+    for (let i = 0; i < 100; i++) {
+        let numbers = Math.round(Math.random() * 100);
+        arr.push(numbers);
+    }
+    return arr;
+}
+console.log(random100(res));
 // - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. Відсортувати його за допомоги sort
+console.log(res.sort((a, b) => a - b));
 // - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. відфільтрувати  його за допомоги filter, залишивши тільки парні числа (без 0!)
-//
+console.log(res.filter(value => value % 2 === 0 && value !== 0));
 // - Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.
+
+// v1
+// let capitalize = (str) => {
+//     return str.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()})
+// }
+// console.log(capitalize(str4));
+let capitalize = (str) => {
+    let arr = str.split(' ');
+    let res = arr.map(value => value[0].toUpperCase() + value.substring(1))
+        .join(' ')
+    return res;
+}
+console.log(str4);
+console.log(capitalize(str4));
+
 // - Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
 // Протестувати на значеннях
 // someemail@gmail.com
 // someeMAIL@gmail.com
 // someeMAIL@i.ua
 // some.email@gmail.com
-//
 // Примітка
 // Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні". Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.
-//
+let emailValidator = (email) => {
+    if (email.indexOf('@') !== 0){}
+    else{console.log('Please check text before "@"')}
+    if (email.includes('@')){}
+    else{console.log('Please add "@"')}
+    if (email.indexOf('@')-email.indexOf('.') > 2){}
+    else{console.log('Please check dot')}
+
+}
+let email1 = 'ss@gmail.com';
+let email2 = 'someemailgmail.com';
+emailValidator(email1)
+// emailValidator(email2)
 // - є масивlet coursesArray = [
 //     {
 //         title: 'JavaScript Complex',
