@@ -90,18 +90,26 @@ console.log(capitalize(str4));
 // Примітка
 // Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні". Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.
 let emailValidator = (email) => {
-    if (email.indexOf('@') !== 0){}
-    else{console.log('Please check text before "@"')}
-    if (email.includes('@')){}
-    else{console.log('Please add "@"')}
-    if (email.indexOf('@')-email.indexOf('.') > 2){}
-    else{console.log('Please check dot')}
-
+    let lower = email.toLowerCase()
+    if (email.indexOf('@') === 0) {
+        console.log('ERROR Please check text before "@"')
+    } else if (!email.includes('@')) {
+        console.log('ERROR Please add "@"')
+    } else if (email.indexOf('.') <= email.indexOf('@') + 3) {
+        console.log('ERROR Please check dot')
+    } else {
+        console.log(`***Your email - ${email} - is ok***`)
+    }
 }
-let email1 = 'ss@gmail.com';
-let email2 = 'someemailgmail.com';
+let email1 = 'someemail@gmail.com';
+let email2 = 'someeMAIL@gmail.com';
+let email3 = 'someeMAIL@i.ua';
+let email4 = 'some.email@gmail.com';
 emailValidator(email1)
-// emailValidator(email2)
+emailValidator(email2)
+emailValidator(email3)
+emailValidator(email4)
+
 // - є масивlet coursesArray = [
 //     {
 //         title: 'JavaScript Complex',
@@ -171,25 +179,142 @@ emailValidator(email1)
 //         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
 //     }
 // ];
-//
-//
+
 // відсортувати його в спадаючому порядку за кількістю елементів в полі modules
-//
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+console.log(coursesArray.sort((a, b) => b.modules.length - a.modules.length));
 // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
 //     let symb = "о", str = "Астрономия это наука о небесных объектах";
 // document.writeln(count(str, symb)) // 5
-//
+let count = (str, stringsearch) => {
+    let split = str.split('');
+    let quantityStr = split.filter(value => value === stringsearch)
+    return quantityStr.length
+}
+let str = "Астрономия это наука о небесных объектах";
+console.log(count(str, 'о'));
+document.writeln(count(str, 'о'))
 // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
 //     let str = "Сила тяжести приложена к центру масс тела";
 // document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
-//
-//
+let str10 = "Сила тяжести приложена к центру масс тела";
+let cutStrings = (str, n) => {
+    let arr = str.split(' ');
+    let res = arr.splice(0, n)
+        .join(' ');
+    return res
+}
+console.log(cutStrings(str10, 5));
 // -стоврити масив книжок (назва, кількість сторінок, автори , жанри).
+let books = [
+    {name: 'text1111111', pages: 222, authors: ['vasya', 'anna', 'oleg'], genre: ['horror', 'drama']},
+    {name: 'text211', pages: 322, authors: ['anna'], genre: ['horror', 'drama', 'comedia']},
+    {name: 'text322', pages: 100, authors: ['vasya', 'oleg'], genre: ['horror']},
+    {name: 'text4222222222222', pages: 1000, authors: ['vasya', 'oleg'], genre: ['horror']},
+    {name: 'text4', pages: 5000, authors: ['vasya', 'oleg'], genre: ['horror']},
+    {name: 'text522', pages: 212, authors: ['vasya', 'anna', 'oleg'], genre: ['horror', 'drama', 'comedia', 'roman']}
+];
 // -знайти наібльшу книжку.
+let sortBiggest = (arr) => {
+    let res = arr.sort((a, b) => b.pages - a.pages);
+    return res[0]
+}
+console.log(sortBiggest(books));
 // - знайти книжку/ки з найбільшою кількістю жанрів
+let sortGenre = (arr) => {
+    let res = arr.sort((a, b) => b.genre.length - a.genre.length);
+    return res[0];
+}
+console.log(sortGenre(books));
 // - знайти книжку/ки з найдовшою назвою
+let sortLongestName = (arr) => {
+    let res = arr.sort((a, b) => b.name.length - a.name.length);
+    return res[0];
+}
+console.log(sortLongestName(books));
 // - знайти книжку/ки які писали 2 автори
+let filterTwoAuthors = (arr) =>{
+    let res = arr.filter(value => value.authors.length === 2)
+    return res
+}
+console.log(filterTwoAuthors(books));
 // - знайти книжку/ки які писав 1 автор
+let filterOneAuthors = (arr) =>{
+    let res = arr.filter(value => value.authors.length === 1)
+    return res
+}
+console.log(filterOneAuthors(books));
 // - вісортувати книжки по кількості сторінок по зростанню
-//
-//
+let sortAll = (arr) => {
+    let res = arr.sort((a, b) => a.pages - b.pages);
+    return res
+}
+console.log(sortAll(books));
