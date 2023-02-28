@@ -1,7 +1,6 @@
 // - Створити функцію конструктор для об'єктів User з полями id, name, surname , email, phone
 // створити пустий масив, наповнити його 10 об'єктами new User(....)
 let users = [];
-
 function User(id, name, surname, email, phone) {
     this.id = id;
     this.name = name;
@@ -9,19 +8,16 @@ function User(id, name, surname, email, phone) {
     this.email = email;
     this.phone = phone;
 }
-
-let user1 = new User(1, 'anton', 'text1', 'text1.@gmail.com', '+380631111111');
-let user2 = new User(22, 'oleg', 'text2', 'text2.@gmail.com', '+380631111112');
-let user3 = new User(11, 'anna', 'text3', 'text3.@gmail.com', '+380631111113');
-let user4 = new User(2, 'sasha', 'text4', 'text4.@gmail.com', '+380631111114');
-let user5 = new User(4, 'cenya', 'text5', 'text5.@gmail.com', '+380631111115');
-let user6 = new User(6, 'lena', 'text6', 'text6.@gmail.com', '+380631111116');
-let user7 = new User(55, 'sabina', 'text7', 'text7.@gmail.com', '+380631111117');
-let user8 = new User(10, 'oleg2', 'text8', 'text8.@gmail.com', '+380631111118');
-let user9 = new User(95, 'anton2', 'text9', 'text9.@gmail.com', '+380631111119');
-let user10 = new User(112, 'sergiy', 'text10', 'text10.@gmail.com', '+380631111110');
-
-users.push(user1, user2, user3, user4, user5, user6, user7, user8, user9, user10)
+users.push(new User(1, 'anton', 'text1', 'text1.@gmail.com', '+380631111111'),
+new User(22, 'oleg', 'text2', 'text2.@gmail.com', '+380631111112'),
+new User(11, 'anna', 'text3', 'text3.@gmail.com', '+380631111113'),
+new User(2, 'sasha', 'text4', 'text4.@gmail.com', '+380631111114'),
+new User(4, 'cenya', 'text5', 'text5.@gmail.com', '+380631111115'),
+new User(6, 'lena', 'text6', 'text6.@gmail.com', '+380631111116'),
+new User(55, 'sabina', 'text7', 'text7.@gmail.com', '+380631111117'),
+new User(10, 'oleg2', 'text8', 'text8.@gmail.com', '+380631111118'),
+new User(95, 'anton2', 'text9', 'text9.@gmail.com', '+380631111119'),
+new User(112, 'sergiy', 'text10', 'text10.@gmail.com', '+380631111110'))
 console.log(users);
 
 // - Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)
@@ -66,6 +62,7 @@ console.log(clinetsSorted);
 // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
+
 function Car(model, manuf, year, maxSpeed, engCapicity) {
     this.model = model;
     this.manuf = manuf;
@@ -76,16 +73,14 @@ function Car(model, manuf, year, maxSpeed, engCapicity) {
         console.log(`їдемо зі швидкістю ${maxSpeed}km на годину`)
     };
     this.info = function () {
-        console.log(`
-            model: ${model}
-            manuf: ${manuf}
-            year: ${year}
-            maxSpeed: ${maxSpeed}
-            engCapacity: ${engCapicity}
-        `)
+       console.log('***INFO**');
+        for (const key in this) {
+        if (typeof this[key] === 'function') continue;
+      console.log(`${key.toUpperCase()} - ${JSON.stringify(this[key])}`);
+        }
     };
     this.increaseMaxSpeed = function (newSpeed) {
-        console.log(+maxSpeed + (+newSpeed))
+        console.log(+maxSpeed + (+newSpeed)+'')
     };
     this.changeYear = function (newValue) {
         console.log(year = newValue)
@@ -128,13 +123,11 @@ let nCar = class {
         };
     }
     info() {
-        console.log(`
-            model: ${this.model}
-            manuf: ${this.manuf}
-            year: ${this.year}
-            maxSpeed: ${this.maxSpeed}
-            engCapacity: ${this.engCapicity}
-        `)
+        console.log('**** INFO ****')
+    for (const key in this) {
+      console.log(`${key.toUpperCase()} - ${JSON.stringify(this[key])}`)
+    }
+        console.log('**** INFO ****')
     }
     increaseMaxSpeed(newSpeed) {
         console.log(+this.maxSpeed + (+newSpeed))
