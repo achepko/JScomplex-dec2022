@@ -297,3 +297,52 @@ htmlButton.onclick = () => {
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання);
 
+let h1New = document.createElement('h1');
+h1New.innerText = 'LAST HARDEST TASK'
+
+let formNew = document.createElement('form');
+let inputNew = document.createElement('input');
+let input1New = document.createElement('input');
+let input2New = document.createElement('input');
+let input3New = document.createElement('input');
+
+inputNew.setAttribute('type','number')
+input1New.setAttribute('type','number')
+input2New.setAttribute('type','text')
+input3New.setAttribute('type','button')
+inputNew.setAttribute('placeholder','set quantity of rows')
+input1New.setAttribute('placeholder','set quantity of cells')
+input2New.setAttribute('placeholder','set content of cell ')
+input3New.setAttribute('value','CLICK ME!')
+
+formNew.append(inputNew,input1New,input2New,input3New);
+document.body.append(h1New,formNew)
+
+input3New.onclick = () => {
+    let h2Res = document.createElement('h2');
+    h2Res.innerText = 'RESULT'
+    document.body.append(h2Res);
+    let table = document.createElement('table');
+    document.body.appendChild(table)
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
+    table.append(thead,tbody);
+    let tr1 = document.createElement('tr');
+    thead.appendChild(tr1);
+    let tr2 = document.createElement('tr');
+    tbody.appendChild(tr2);
+    let th = document.createElement('th');
+    let th2 = document.createElement('th');
+    let th3 = document.createElement('th');
+    tr1.append(th,th2,th3);
+    th.innerHTML = 'ROWS'
+    th2.innerHTML = 'CELLS'
+    th3.innerHTML = 'CONTENT'
+    let td = document.createElement('td');
+    let td2 = document.createElement('td');
+    let td3 = document.createElement('td');
+    tr2.append(td,td2,td3);
+    td.innerHTML = inputNew.value;
+    td2.innerHTML = input1New.value;
+    td3.innerHTML = input2New.value;
+}
