@@ -80,7 +80,7 @@ for (const course of coursesAndDurationArray2) {
     let title = document.createElement('h1');
     title.classList.add('heading')
     title.innerText = course.title;
-    ;
+
 
     let month = document.createElement('p');
     month.classList.add('description')
