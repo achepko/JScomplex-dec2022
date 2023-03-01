@@ -19,29 +19,55 @@
             font-size: 2em;
             margin-bottom: 20px;
         }
+
         .member {
             background: green;
         }
 
-        div.item{
-            width: 100vw;
+        div.item {
             display: flex;
             flex-wrap: wrap;
             background: silver;
             margin-bottom: 30px;
+            border: red 5px solid;
+            padding: 20px;
+            box-sizing: border-box;
+            column-gap: 30px;
+            justify-content: center;
         }
-        h1.title{
-            width: 100vw ;
-            text-align: center;
-            text-decoration: underline;
+
+        h1.title, h2.duration1, h2.duration2, ul.modules {
+            padding: 10px;
+            border: 2px solid blue;
         }
-        h2.duration1,h2.duration2{
-            width: 50vw;
-            text-align: center;
-        }
-        ul.modules{
+
+        h1.title {
             width: 100vw;
+            text-align: center;
         }
+
+        h2.duration1 {
+            width: 20%;
+            text-align: center;
+        }
+        h2.duration2{
+            width: 70%;
+            text-align: center;
+        }
+
+        ul.modules {
+            width: 100vw;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            box-sizing: border-box;
+        }
+        ul.modules li{
+            border: green 2px solid;
+
+        }
+
 
     </style>
 </head>

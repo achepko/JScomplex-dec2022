@@ -233,21 +233,20 @@ divMain.classList.add('main');
 for (const item of coursesArray) {
 
     let divItem = document.createElement('div');
-    divItem.classList.add('item');
-
     let title = document.createElement('h1');
-    title.classList.add('title');
-    title.innerText = item.title;
-
     let duration1 = document.createElement('h2');
-    duration1.classList.add('duration1');
-    duration1.innerText = `${item.monthDuration} month`;
-
     let duration2 = document.createElement('h2');
+    let modules = document.createElement('ul');
+
+    divItem.classList.add('item');
+    title.classList.add('title');
+    duration1.classList.add('duration1');
     duration2.classList.add('duration2')
+
+    title.innerText = item.title;
+    duration1.innerText = `${item.monthDuration} month`;
     duration2.innerText = `${item.hourDuration} hours`
 
-    let modules = document.createElement('ul');
     modules.classList.add('modules');
     for (const itemElement of item.modules) {
         let htmlliElement = document.createElement('li');
@@ -259,14 +258,42 @@ for (const item of coursesArray) {
     divMain.appendChild(divItem);
     document.body.appendChild(divMain);
 }
+
 // ------------------
 //
 //     - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".
 
+let h3Text = document.createElement('h3');
+let buttonText = document.createElement('button');
+h3Text.innerText = 'OKTEN SCHOOL';
+h3Text.id = 'text';
+buttonText.innerText = "DELETE TEXT"
+document.body.append(h3Text, buttonText)
 
-//     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+buttonText.onclick = () => {
+    h3Text.style.display = 'none';
+}
+// buttonText.setAttribute('onclick', `(document.getElementById('text').style.display='none')`)
+// buttonText.addEventListener('click',() =>{h3Text.remove()});
 
+// - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+let h3Input = document.createElement('h3');
+let htmlInput = document.createElement(`input`);
+let htmlButton = document.createElement('button');
+document.body.append(h3Input, htmlInput, htmlButton);
 
+h3Input.innerText = 'OKTEN SCHOOL new';
+htmlButton.innerText = '18 Y.O.????';
+htmlInput.setAttribute('type', 'number');
+
+htmlButton.onclick = () => {
+    if (htmlInput.value < 18) {
+         alert('GO AWAY');
+    } else {
+        alert('WELCOME')
+    }
+}
 // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
-// (Додатковачастина для завдання)
+// (Додатковачастина для завдання);
+
