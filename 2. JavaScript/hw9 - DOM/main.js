@@ -141,8 +141,8 @@ for (const simpson of simpsons) {
     let h1Simpsons = document.createElement('h1');
     h1Simpsons.innerText = `${simpson.name} ${simpson.surname} -- ${simpson.age} y.o.`;
 
-    let divPhoto = document.createElement('div');
-    divPhoto.innerHTML = `<img src="${simpson.photo}" alt="Photo of ${simpson.name}"/>`
+    let divPhoto = document.createElement('img');
+    divPhoto.src = simpson.photo;
 
     let pSimpsons = document.createElement('p');
     pSimpsons.innerText = `${simpson.info}`
