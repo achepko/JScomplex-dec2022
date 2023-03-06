@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HW 10 EVENTS</title>
     <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            row-gap: 50px;
+        }
         form{
             width: 200px;
             display: flex;
@@ -18,6 +23,17 @@
         }
         div{
             border: 2px solid red;
+            padding: 5px;
+            display: flex;
+
+        }
+        div.locations form{
+            border: none;
+            display: flex;
+            flex-direction: row;
+            column-gap: 100px;
+            align-items: center;
+            justify-content: center;
         }
 
     </style>
@@ -37,5 +53,13 @@
 
   <script src="main.js"></script>
 <a href="sessions.html" target="_blank">SESSIONS PAGE</a>
+
+<div class="locations">
+    <div id="locationNew"></div>
+    <form action="" id="buttons">
+        <button type="button" name="prev">PREV</button>
+        <button type="button" name="next">NEXT</button>
+    </form>
+</div>
 </body>
 </html>
