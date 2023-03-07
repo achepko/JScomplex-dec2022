@@ -12,22 +12,19 @@
             flex-direction: column;
             row-gap: 50px;
         }
-        form{
+        #form{
             width: 200px;
             display: flex;
             flex-direction: column;
             row-gap: 5px;
         }
-        input{
-            /*margin-bottom: 10px;*/
-        }
-        div{
+        div.f1{
             border: 2px solid red;
             padding: 5px;
             display: flex;
 
         }
-        div.locations form{
+        div.locations #form {
             border: none;
             display: flex;
             flex-direction: row;
@@ -35,7 +32,37 @@
             align-items: center;
             justify-content: center;
         }
+        div.locations {
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+        }
+        .wrapper {
+            width: 300px;
+            padding: 10px;
+        }
+        .item {
+            margin-top: 10px;
+            border: red 2px solid;
+        }
 
+        #locationNew {
+            background: cornflowerblue;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        #form2{
+            display: flex;
+            flex-direction: row;
+            column-gap: 20px;
+        }
+        .td{
+            border: 2px solid black;
+        }
     </style>
 </head>
 <body>
@@ -50,16 +77,24 @@
     <button type="submit" name="button" ></button>
 </form>
 
+<div class="numer-box"></div>
 
-  <script src="main.js"></script>
 <a href="sessions.html" target="_blank">SESSIONS PAGE</a>
 
-<div class="locations">
+    <div class="locations">
+        <button id="prev" disabled>PREV</button>
+        <button id="next">NEXT</button>
     <div id="locationNew"></div>
-    <form action="" id="buttons">
-        <button type="button" name="prev">PREV</button>
-        <button type="button" name="next">NEXT</button>
-    </form>
 </div>
+
+    <form action="" id="form2">
+        <input type="number" name="rows" placeholder="set quantity of rows">
+        <input type="number" name="cells" placeholder="set quantity of sells">
+        <input type="text" name="context" placeholder="set context of the sells">
+        <button type="submit" name="send" >CREATE TABLE</button>
+    </form>
+
+
+  <script src="main.js"></script>
 </body>
 </html>

@@ -2,9 +2,10 @@
 
 let submit = document.querySelector('#form');
 submit.button.innerText = 'submit info'
-submit.addEventListener('submit',function (e){
+submit.addEventListener('submit', function (e) {
     e.preventDefault();
     let div1 = document.createElement('div');
+    div1.classList.add('f1')
     div1.innerText = `${this.name.value} ${this.surname.value} ${this.age.value}`
     submit.append(div1);
 });
@@ -12,24 +13,27 @@ submit.addEventListener('submit',function (e){
 // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
 
 // option 1
-let number = localStorage.getItem('h3') || 0;
-let numberHTML = document.createElement('h3');
-numberHTML.innerText = `${+(JSON.parse(number))+1}`
-localStorage.setItem('h3',JSON.stringify(numberHTML.innerText))
-document.body.appendChild(numberHTML);
+let numberBox = document.querySelector('.numer-box');
+let number = localStorage.getItem('h1') || 0;
+let numberHTML = document.createElement('h1');
+numberHTML.innerText = `${+(JSON.parse(number)) + 1}`
+localStorage.setItem('h1', JSON.stringify(numberHTML.innerText))
+numberBox.appendChild(numberHTML);
 
 // option 2
+// let numberBox = document.querySelector('.numer-box');
 // if ( localStorage.getItem('h3')){
 //     let numberHTML = document.createElement('h3');
 //     numberHTML.innerText = `${+(JSON.parse(localStorage.getItem('h3')))+1}`
-//     document.body.appendChild(numberHTML);
+//     numberBox.appendChild(numberHTML);
 //     localStorage.setItem('h3',JSON.stringify(numberHTML.innerText))
 // }else if (!localStorage.getItem('h3')){
+// let numberBox = document.querySelector('.numer-box');
 //     localStorage.setItem('h3','0')
 //     localStorage.getItem('h3')
 //     let numberHTML = document.createElement('h3');
 //     numberHTML.innerText = `${+(JSON.parse(localStorage.getItem('h3')))+1}`
-//     document.body.appendChild(numberHTML);
+//     numberBox.appendChild(numberHTML);
 //     localStorage.setItem('h3',JSON.stringify(numberHTML.innerText))
 // }
 
@@ -38,8 +42,7 @@ document.body.appendChild(numberHTML);
 let sessionsDate = JSON.parse(localStorage.getItem('sessions')) || [];
 let date = new Date();
 sessionsDate.push(date);
-localStorage.setItem('sessions',JSON.stringify(sessionsDate));
-
+localStorage.setItem('sessions', JSON.stringify(sessionsDate));
 
 // =========================
 //     зробити масив на 100 об'єктів та дві кнопки prev next
@@ -53,7 +56,7 @@ localStorage.setItem('sessions',JSON.stringify(sessionsDate));
 // }
 // document.body.append(JSON.stringify(locations));
 
-let locations= [{"title": "м. Київ", "type": "city", "index": 0},
+let locations = [{"title": "м. Київ", "type": "city", "index": 0},
     {"title": "Житомирська область", "type": "oblast", "index": 1},
     {"title": "Харківська область", "type": "oblast", "index": 2},
     {"title": "Вінницька область", "type": "oblast", "index": 3},
@@ -226,13 +229,77 @@ let locations= [{"title": "м. Київ", "type": "city", "index": 0},
     {"title": "Вараський район", "type": "raion", "index": 170},
     {"title": "м. Славутич", "type": "city", "index": 171}]
 
+let page = 1;
 
-let locationNew = document.getElementsByTagName('locationNew');
-locationNew
+let prevBtn = document.getElementById('prev');
+let nextBtn = document.getElementById('next');
+prevBtn.addEventListener('click', () => handler(page -= 1));
+nextBtn.addEventListener('click', () => handler(page += 1));
 
+handler(page);
 
+function handler(page, limit = 10) {
+    let locationNew = document.getElementById('locationNew');
 
+    const newArr = [];
+    const startIndex = (page - 1) * limit;
+    let endIndex = page * limit;
+
+    if (startIndex > 0) {
+        prevBtn.removeAttribute('disabled')
+    } else {
+        prevBtn.setAttribute('disabled', 'disabled')
+    }
+    if (endIndex < locations.length) {
+        nextBtn.removeAttribute('disabled')
+    } else {
+        nextBtn.setAttribute('disabled', 'disabled')
+        endIndex = locations.length;
+    }
+
+    for (let i = startIndex; i < endIndex; i++) {
+        const location = locations[i];
+        let item = document.createElement('div');
+        let index = document.createElement('div');
+        let title = document.createElement('div');
+        let type = document.createElement('div');
+
+        item.classList.add('wrapper', 'item');
+
+        index.innerHTML = `Index: ${location.index}`;
+        title.innerHTML = `Title: ${location.title}`;
+        type.innerHTML = `Type: ${location.type}`;
+
+        item.append(index, title, type);
+        newArr.push(item);
+        locationNew.appendChild(item);
+    }
+    locationNew.replaceChildren(...newArr);
+}
 
 // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
-// (Додатковачастина для завдання)sa
+// (Додатковачастина для завдання)
+
+let form2 = document.getElementById('form2');
+console.log(form2);
+
+form2.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    let table = document.createElement('table');
+    if (form2.rows.value > 50 || form2.cells.value > 50) {
+        alert('TOO BIG TABLE!');
+    } else {
+        document.body.appendChild(table);
+        for (let i = 0; i < form2.rows.value; i++) {
+            let tr = document.createElement('tr');
+            table.appendChild(tr);
+            for (let i = 0; i < form2.cells.value; i++) {
+                let td = document.createElement('td');
+                td.innerHTML = form2.context.value;
+                td.classList.add('td');
+                tr.appendChild(td);
+            }
+        }
+    }
+})
