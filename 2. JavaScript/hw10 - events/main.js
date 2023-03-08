@@ -8,6 +8,10 @@ submit.addEventListener('submit', function (e) {
     div1.classList.add('f1')
     div1.innerText = `${this.name.value} ${this.surname.value} ${this.age.value}`
     submit.append(div1);
+    submit.name.value = '';
+    submit.surname.value = '';
+    submit.age.value = '';
+
 });
 // ==========================
 // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
@@ -302,4 +306,7 @@ form2.addEventListener('submit', function (ev) {
             }
         }
     }
+    form2.rows.value = '';
+    form2.cells.value = '';
+    form2.context.value = '';
 })
