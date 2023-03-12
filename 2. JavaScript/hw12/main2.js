@@ -8,20 +8,33 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id)
     .then(value => value.json())
     .then(user => console.log(user));
 
+// fetch('https://jsonplaceholder.typicode.com/users/' + id)
+//     .then(value => value.json())
+//     .then(user => {
+//         userInfo(user)
+//         function userInfo(object) {
+//             for (const info in object) {
+//                 if (typeof object[info] === 'object') {
+//                     userInfo(object[info]);
+//                 }
+//                 let h1 = document.createElement('h1');
+//                 document.body.appendChild(h1);
+//                 h1.innerHTML = `${info} : ${object[info]}`
+//             }
+//         }
+//     });
 fetch('https://jsonplaceholder.typicode.com/users/' + id)
     .then(value => value.json())
     .then(user => {
         userInfo(user)
-       function userInfo(target) {
-           for (const info in user) {
-               let h1 = document.createElement('h1');
-               document.body.appendChild(h1);
-               if (typeof info === 'object'){
-                   userInfo(target);
-               } else
-               h1.innerHTML = `${info} : ${user[info]}`
-           }
-       }
-console.log(typeof user.company)
-    })
-
+        function userInfo(object) {
+            for (const info in object) {
+                if (typeof object[info] !== 'object') {
+                let h1 = document.createElement('h1');
+                document.body.appendChild(h1);
+                h1.innerHTML = `${info} : ${object[info]}`
+                }else
+                    userInfo(object[info]);
+            }
+        }
+    });
