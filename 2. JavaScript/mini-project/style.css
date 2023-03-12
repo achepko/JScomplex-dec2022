@@ -1,0 +1,25 @@
+#container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 50px;
+    column-gap: 50px;
+    padding-top: 50px;
+
+
+}
+.userBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+
+    row-gap: 20px;
+    border: 1px cornflowerblue solid;
+    border-radius: 10px;
+    padding: 20px;
+}
