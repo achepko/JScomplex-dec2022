@@ -3,10 +3,6 @@ let id = url.searchParams.get('id');
 
 fetch('https://jsonplaceholder.typicode.com/users/' + id)
     .then(value => value.json())
-    .then(user => console.log(user));
-
-fetch('https://jsonplaceholder.typicode.com/users/' + id)
-    .then(value => value.json())
     .then(user => {
         let userDiv = document.createElement('div');
         userDiv.classList.add('userDiv')
@@ -14,7 +10,6 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id)
 
         function showUserInfo(object) {
             for (const objectParam in object) {
-                // debugger
                 let userParam = document.createElement('div');
                 userParam.classList.add('userParam')
                 let userInfo = document.querySelector('.userInfo');
@@ -53,16 +48,15 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id)
 
 
 let buttonShowPosts = document.createElement('button');
-buttonShowPosts.innerHTML = 'Post of current user'
+buttonShowPosts.innerHTML = 'SHOW/HIDE ALL POSTS'
 let userPosts = document.querySelector('.userPosts');
 userPosts.appendChild(buttonShowPosts);
 
-buttonShowPosts.addEventListener('click', function (e) {
     fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
         .then(value => value.json())
         .then(posts => {
-            for (let i = 0; i < posts.length; i++) {
                 let postsTitles = document.createElement('div');
+            for (let i = 0; i < posts.length; i++) {
                 let postTitle = document.createElement('div');
                 postTitle.classList.add('postTitle')
                 postsTitles.classList.add('postsTitles')
@@ -73,9 +67,51 @@ buttonShowPosts.addEventListener('click', function (e) {
 
                 let a = document.createElement('a');
                 let buttonPostDetails = document.createElement('button');
-                buttonPostDetails.innerHTML = 'Post Details'
+                buttonPostDetails.innerHTML = 'READ MORE'
                 a.appendChild(buttonPostDetails);
                 postsTitles.appendChild(a);
+                a.href = 'post-details.html?id=' + id + '&post#' + JSON.stringify(posts[i].id)
             }
         })
+
+buttonShowPosts.addEventListener('click', function (e) {
+    let postsTitles = document.querySelector('.postsTitles');
+    console.log(postsTitles)
+                postsTitles.classList.toggle('open');})
+
+let aHome = document.createElement('a');
+let buttonHome = document.createElement('button');
+buttonHome.classList.add('buttonHome');
+aHome.appendChild(buttonHome);
+document.body.appendChild(aHome);
+buttonHome.innerHTML = 'HOME PAGE'
+buttonHome.addEventListener('click',function () {
+aHome.href = 'index.html'
 })
+
+
+
+
+// buttonShowPosts.addEventListener('click', function (e) {
+//     fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
+//         .then(value => value.json())
+//         .then(posts => {
+//             let postsTitles = document.createElement('div');
+//             for (let i = 0; i < posts.length; i++) {
+//                 let postTitle = document.createElement('div');
+//                 postTitle.classList.add('postTitle')
+//                 postsTitles.classList.add('postsTitles')
+//                 postTitle.innerHTML = `${posts[i].title}`;
+//
+//                 postsTitles.appendChild(postTitle);
+//                 userPosts.appendChild(postsTitles);
+//
+//                 let a = document.createElement('a');
+//                 let buttonPostDetails = document.createElement('button');
+//                 buttonPostDetails.innerHTML = 'Post Details'
+//                 a.appendChild(buttonPostDetails);
+//                 postsTitles.appendChild(a);
+//                 postsTitles.classList.toggle('open');
+//             }
+//         })
+// })

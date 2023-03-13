@@ -23,3 +23,22 @@
     border-radius: 10px;
     padding: 20px;
 }
+
+.postsTitles {
+    /*width: 300px;*/
+    display: none;
+}
+
+.postsTitles.open {
+    display: block;
+    transition: all 1s ease;
+}
+.buttonHome{
+    background: cornflowerblue;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.userInfo{
+    margin-top: 50px;
+}
