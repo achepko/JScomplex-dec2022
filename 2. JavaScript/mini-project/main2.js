@@ -14,17 +14,43 @@ fetch('https://jsonplaceholder.typicode.com/users/' + id)
 
         function showUserInfo(object) {
             for (const objectParam in object) {
+                // debugger
+                let userParam = document.createElement('div');
+                userParam.classList.add('userParam')
+                let userInfo = document.querySelector('.userInfo');
+                userInfo.appendChild(userParam);
                 if (typeof object[objectParam] !== 'object') {
-                    let userParam = document.createElement('div');
                     userParam.innerHTML = `${objectParam}: ${object[objectParam]}`;
-                    userDiv.appendChild(userParam);
-                    let wrapper = document.querySelector('.userInfo');
-                    wrapper.appendChild(userDiv);
-                } else
-                    showUserInfo(object[objectParam])
+                } else {
+                    userParam.innerHTML = `${objectParam}:`;
+                    let ul = document.createElement('ul');
+                    for (const subParam in object[objectParam]) {
+                        if (typeof object[objectParam][subParam] !== 'object') {
+                            let li = document.createElement('li');
+                            li.id = 'id';
+                            userParam.appendChild(ul);
+                            ul.appendChild(li);
+                            li.innerHTML = `${subParam}: ${object[objectParam][subParam]}`;
+                        } else {
+                            let li = document.getElementById('id');
+                            li.innerHTML = `${subParam}:`;
+                            let ul2 = document.createElement('ul');
+                            for (const subSubParam in object[objectParam][subParam]) {
+                                if (typeof subSubParam !== 'object') {
+                                    let li2 = document.createElement('li');
+                                    ul2.appendChild(li2);
+                                    li.appendChild(ul2);
+                                    li2.innerHTML = `${subSubParam}: ${object[objectParam][subParam][subSubParam]}`;
+
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     });
+
 
 let buttonShowPosts = document.createElement('button');
 buttonShowPosts.innerHTML = 'Post of current user'
@@ -44,7 +70,7 @@ buttonShowPosts.addEventListener('click', function (e) {
 
                 postsTitles.appendChild(postTitle);
                 userPosts.appendChild(postsTitles);
-                
+
                 let a = document.createElement('a');
                 let buttonPostDetails = document.createElement('button');
                 buttonPostDetails.innerHTML = 'Post Details'

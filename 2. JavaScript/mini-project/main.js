@@ -23,10 +23,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
             button.innerHTML = 'User Details';
             userDiv.appendChild(a);
             a.appendChild(button);
-
             container.appendChild(userDiv);
-
-
         }
     })
 
