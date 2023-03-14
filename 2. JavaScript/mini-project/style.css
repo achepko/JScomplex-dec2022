@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap');
+body{
+    background: url('images/background1.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: white;
+}
+.footer{
+    color: white;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.buttonHome{
+    /*background: none;*/
+    /*border: none;*/
+    /*color: white;*/
+}
+
 #container{
     display: flex;
     flex-direction: row;
@@ -8,8 +30,6 @@
     row-gap: 50px;
     column-gap: 50px;
     padding-top: 50px;
-
-
 }
 .userBlock{
     display: flex;
@@ -25,19 +45,12 @@
 }
 
 .postsTitles {
-    /*width: 300px;*/
     display: none;
 }
 
 .postsTitles.open {
     display: block;
     transition: all 1s ease;
-}
-.buttonHome{
-    background: cornflowerblue;
-    position: absolute;
-    top: 20px;
-    left: 20px;
 }
 .userInfo{
     margin-top: 50px;

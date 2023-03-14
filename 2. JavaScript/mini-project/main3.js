@@ -1,24 +1,46 @@
+// let url = new URL(location.href);
+// let id = url.searchParams.get('id');
+// console.log(id);
 let url = new URL(location.href);
-let id = url.searchParams.get('id');
-console.log(id);
-fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
+let post = url.searchParams.get('post');
+
+fetch('https://jsonplaceholder.typicode.com/posts/' + post)
     .then(value => value.json())
     .then(postsAll => console.log(postsAll))
 
-fetch('https://jsonplaceholder.typicode.com/users/' + id + '/posts')
+fetch('https://jsonplaceholder.typicode.com/posts/' + post)
     .then(value => value.json())
-    .then(postsAll =>{
-        let posts = document.createElement('div');
-        for (let i = 0; i < postsAll.length; i++) {
-            let post = document.createElement('div');
-            post.classList.add('post')
-            posts.classList.add('posts')
-            post.innerHTML = `${postsAll[i].title}`;
-
-            posts.appendChild(post);
+    .then(post => {
+        for (const postDetail in post) {
+            let postParam = document.createElement('div');
+            postParam.classList.add('postParam')
             let postInfo = document.querySelector('.postInfo');
-            postInfo.appendChild(posts);
-
+            postParam.innerHTML = `${postDetail} : ${post[postDetail]}`;
+            postInfo.appendChild(postParam);
         }
+    });
 
-})
+fetch('https://jsonplaceholder.typicode.com/posts/' + post + '/comments')
+    .then(value => value.json())
+    .then(comments => console.log(comments));
+
+fetch('https://jsonplaceholder.typicode.com/posts/' + post + '/comments')
+    .then(value => value.json())
+    .then(comments => {
+        let postComments = document.querySelector('.postComments');
+        for (let i = 0; i< comments.length; i++){
+
+                let comment = document.createElement('div');
+                comment.classList.add('comment');
+                let commentId = document.createElement('div');
+                let commentName = document.createElement('div');
+                let commentEmail = document.createElement('div');
+                let commentBody = document.createElement('div');
+                commentId.innerHTML = `id: ${comments[i].id}`
+                commentName.innerHTML = `Name: ${comments[i].name}`
+                commentEmail.innerHTML = `Email: ${comments[i].email}`
+                commentBody.innerHTML = `comment: ${comments[i].body}`
+                comment.append(commentId,commentName,commentEmail,commentBody);
+                postComments.appendChild(comment);
+            }
+    })
